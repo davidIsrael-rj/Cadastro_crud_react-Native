@@ -52,7 +52,7 @@ export default props => {
                 }}
                 ViewComponent={LinearGradient}
                 style={{ paddingTop: 5 }}
-                onPress={() => props.navigation.navigate('UserForm')}
+                onPress={() => props.navigation.navigate('UserForm', user)}
             >
                 <Avatar
                     rounded
