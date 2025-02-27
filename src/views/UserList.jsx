@@ -1,12 +1,15 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Alert, FlatList, Text, View } from "react-native";
 import users from "../data/users";
 import { Avatar, Button, ListItem } from "@rneui/themed";
 import LinearGradient from "react-native-linear-gradient";
 import TouchableScale from "react-native-touchable-scale";
 import { Icon } from "@rneui/base";
+import UsersContext from "../context/UsersContext";
 
 export default props => {
+
+    useContext(UsersContext)
 
     function confirmaUserDeletion(user) {
         Alert.alert('Excluir Usuário', 'Deseja excluir o usuário?', [
