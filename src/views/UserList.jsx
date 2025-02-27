@@ -1,6 +1,5 @@
 import React, { useContext } from "react";
 import { Alert, FlatList, Text, View } from "react-native";
-import users from "../data/users";
 import { Avatar, Button, ListItem } from "@rneui/themed";
 import LinearGradient from "react-native-linear-gradient";
 import TouchableScale from "react-native-touchable-scale";
@@ -9,13 +8,13 @@ import UsersContext from "../context/UsersContext";
 
 export default props => {
 
-    useContext(UsersContext)
+    const { state } = useContext(UsersContext)
 
     function confirmaUserDeletion(user) {
         Alert.alert('Excluir Usuário', 'Deseja excluir o usuário?', [
             {
                 text: 'Sim', onPress() {
-                    console.warn('delete ' + user.id + ' - '+user.name)
+                    console.warn('delete ' + user.id + ' - ' + user.name)
                 }
             },
             { text: 'Não' }
@@ -78,7 +77,7 @@ export default props => {
         <View>
             <FlatList
                 keyExtractor={user => user.id.toString()}
-                data={users}
+                data={state.users}
                 renderItem={getUserItem}
             />
         </View>
